@@ -2,6 +2,9 @@
 __pycache__/
 
 # iLLaMA
+scripts/debug.sh
+scripts/eval_illama_in1k_224.sh
+scripts/eval_illama_in1k_384.sh
 output/
 
 
