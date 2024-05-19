@@ -81,7 +81,7 @@ To evaluate models on 224 resolution, run:
 
 ```bash
 MODEL=illama_tiny
-RESUME='/mnt/petrelfs/wangjiahao/DoiT/pretrained/illama-tiny-in1k-75.0.pth'
+RESUME='/your/path/to/illama-tiny-in1k-75.0.pth'
 
 python -m torch.distributed.launch --nproc_per_node=2 main.py \
     --model $MODEL --eval true \
@@ -93,7 +93,7 @@ To evaluate models on 384 resolution, run:
 
 ```bash
 MODEL=illama_base
-RESUME='/mnt/petrelfs/wangjiahao/DoiT/pretrained/illama-base-in1k-384-83.0.pth'
+RESUME='/your/path/to/illama-base-in1k-384-83.0.pth'
 
 python -m torch.distributed.launch --nproc_per_node=2 main_soft_fthr.py \
     --model $MODEL --input_size 384 --eval true \
