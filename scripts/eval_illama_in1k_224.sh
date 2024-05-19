@@ -64,3 +64,19 @@ srun -p gvembodied \
     --model $MODEL --eval true \
     --data_path $root_imagenet \
     --resume $RESUME
+
+
+# illama-large: 84.8
+MODEL=illama_large
+RESUME='/mnt/petrelfs/wangjiahao/DoiT/pretrained/illama-large-in21kin1k-224-84.8.pth'
+
+srun -p gvembodied \
+    --job-name=evaluation_224 \
+    --gres=gpu:2 \
+    --cpus-per-task=32 \
+    --preempt \
+    --quotatype=reserved \
+    python -m torch.distributed.launch --nproc_per_node=2 main.py \
+    --model $MODEL --eval true \
+    --data_path $root_imagenet \
+    --resume $RESUME
