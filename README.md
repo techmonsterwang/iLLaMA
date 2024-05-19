@@ -3,8 +3,6 @@
 <p align="center">
 <a href="https://arxiv.org/pdf/2404.06773" alt="arXiv">
     <img src="https://img.shields.io/badge/arXiv-2404.06773-b31b1b.svg?style=flat" /></a>
-<a href="https://huggingface.co/spaces/whyu/MambaOut" alt="Hugging Face Spaces">
-    <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue" /></a>
 </p>
 
 
