@@ -3,8 +3,5 @@ __pycache__/
 
 # iLLaMA
 output/
-debug.sh/
 
-
-
-
+scripts/debug.sh
