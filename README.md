@@ -61,14 +61,14 @@ Data preparation: ImageNet with the following folder structure, you can extract 
 ### iLLaMA on ImageNet-1K
 | Model | Pre-trained dataset | Resolution | Params | MACs | Top1 Acc |
 | :---     | :---     |   :---:    |  :---: |  :---:  |  :---:  |
-| [illama_tiny](https://github.com/techmonsterwang/iLLaMA/releases/download/model/mambaout_femto.pth) | - | 224 | 5.7M | 1.3G | 75.0 |
-| [illama_small](https://github.com/techmonsterwang/iLLaMA/releases/download/model/mambaout_tiny.pth) | - | 224 | 21.9M | 4.6G | 79.9 |
-| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/model/mambaout_small.pth) | - | 224 | 86.3M | 17.6G | 81.6 |
-| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/model/mambaout_small.pth) | - | 384 | 86.3M | 55.5G | 83.0 |
-| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/model/mambaout_small.pth) | ImageNet-21K | 224 | 86.3M | 17.6G | 83.6 |
-| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/model/mambaout_small.pth) | ImageNet-21K | 384 | 86.3M | 55.5G | 85.0 |
-| [illama_large](https://github.com/techmonsterwang/iLLaMA/releases/download/model/mambaout_small.pth) | ImageNet-21K | 224 | 310.2M | 62.8G | 84.8 |
-| [illama_large](https://github.com/techmonsterwang/iLLaMA/releases/download/model/mambaout_small.pth) | ImageNet-21K | 384 | 310.2M | 194.7G | 86.0 |
+| [illama_tiny](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-tiny-in1k-75.0.pth) | - | 224 | 5.7M | 1.3G | 75.0 |
+| [illama_small](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-small-in1k-79.9.pth) | - | 224 | 21.9M | 4.6G | 79.9 |
+| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in1k-81.6.pth) | - | 224 | 86.3M | 17.6G | 81.6 |
+| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in1k-384-83.0.pth) | - | 384 | 86.3M | 55.5G | 83.0 |
+| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in21kin1k-224-83.6.pth) | ImageNet-21K | 224 | 86.3M | 17.6G | 83.6 |
+| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in21kin1k-384-85.0.pth) | ImageNet-21K | 384 | 86.3M | 55.5G | 85.0 |
+| [illama_large]() | ImageNet-21K | 224 | 310.2M | 62.8G | 84.8 |
+| [illama_large]() | ImageNet-21K | 384 | 310.2M | 194.7G | 86.0 |
 
 
 
