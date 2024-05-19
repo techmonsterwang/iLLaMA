@@ -136,4 +136,4 @@ Training scripts of other models are shown in [scripts](/scripts/).
 
 ## Acknowledgment
 
-Our implementation is based on [Pytorch-image-models](https://github.com/huggingface/pytorch-image-models), [LLaMA](https://github.com/meta-llama/llama), [Dropout](https://github.com/facebookresearch/dropout), and [ConvNeXt](https://github.com/facebookresearch/ConvNeXt).
+Our implementation is based on [pytorch-image-models](https://github.com/huggingface/pytorch-image-models), [llama](https://github.com/meta-llama/llama), [dropout](https://github.com/facebookresearch/dropout), [ConvNeXt](https://github.com/facebookresearch/ConvNeXt), and [weight-selection](https://github.com/OscarXZQ/weight-selection).
