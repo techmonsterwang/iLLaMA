@@ -1,0 +1,14 @@
+# pyc
+__pycache__/
+
+# ConvHDNet
+pretrained/
+teacher/
+teacher_last_for_detseg/
+output/
+llama2/pretrained/
+# visualize/
+data/
+segmentation/work_dirs/
+detection/work_dirs/
+
