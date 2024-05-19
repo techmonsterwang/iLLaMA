@@ -1,173 +1,125 @@
-# Dropout Reduces Underfitting
-
-Official PyTorch implementation for **Dropout Reduces Underfitting**
-
-> [**Dropout Reduces Underfitting**](https://arxiv.org/abs/2303.01500), ICML 2023<br>
-> [Zhuang Liu*](https://liuzhuang13.github.io), [Zhiqiu Xu*](https://oscarxzq.github.io), [Joseph Jin](https://www.linkedin.com/in/joseph-jin/), [Zhiqiang Shen](https://zhiqiangshen.com/), [Trevor Darrell](https://people.eecs.berkeley.edu/~trevor/) (* equal contribution)
-> <br>Meta AI, UC Berkeley and MBZUAI<br>
+# [Adapting LLaMA Decoder to Vision Transformer](https://arxiv.org/pdf/2404.06773)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/8370623/222586143-3500fa5b-c294-48c9-a5cf-5fac2659e519.png" width=50% height=50% 
-class="center">
+<a href="https://arxiv.org/pdf/2404.06773" alt="arXiv">
+    <img src="https://img.shields.io/badge/arXiv-2404.06773-b31b1b.svg?style=flat" /></a>
+<a href="https://huggingface.co/spaces/whyu/MambaOut" alt="Hugging Face Spaces">
+    <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue" /></a>
 </p>
 
-Figure: We propose **early dropout** and **late dropout**. Early dropout helps underfitting models fit the data better and achieve lower training loss. Late dropout helps improve the generalization performance of overfitting models.
+
+<p align="center">
+<img src="https://github.com/hpcaitech/Open-Sora/assets/48375204/8c6c1428-89e9-41d3-862d-2c2be7d65656" width="300"> <br>
+<small>Image credit: DALL·E</small>
+</p>
 
 
-## Results on ImageNet-1K
-
-Model weights are released as links on results.
-
-### Early Dropout
-
-results with basic recipe (s.d. = stochastic depth)
-
-| model| ViT-T | Mixer-S | Swin-F | ConvNeXt-F |
-|:---|:---:|:---:|:---:|:---:|
-| no dropout     | 73.9 | 71.0       | 74.3   | 76.1       |
-| standard dropout   | 67.9  | 67.1       | 71.6   | -          |
-| standard s.d. | 72.6  | 70.5       | 73.7   | 75.5       |
-| early dropout     | [**74.3**](https://drive.google.com/file/d/1Sk93Fz8Pih7qLvAcyRtRjJ2w2yihh7S3/view?usp=share_link)  | [**71.3**](https://drive.google.com/file/d/199i9rRD-u2DA22qmoZH774ibyhFUH_mE/view?usp=share_link)     | [**74.7**](https://drive.google.com/file/d/1gP6vnd-wNyRiU_BTxWHbvrhNykMH-N0r/view?usp=share_link)   | -          |
-| early s.d.    | [**74.4**](https://drive.google.com/file/d/1E550KlZVgsK30u9wX5q5tXXUAxB9gfPg/view?usp=share_link)  | [**71.7**](https://drive.google.com/file/d/1jPtWufetAQhM4oe6wOgdTsKozYCXRmdb/view?usp=share_link)     | [**75.2**](https://drive.google.com/file/d/1kmFlmG_-eIdj_MLfHWtEvbvTPE6IBcYQ/view?usp=share_link)   | [**76.3**](https://drive.google.com/file/d/10v7Ua4f6FlJ3VIf6TV35beSBxjGTcv9U/view?usp=share_link)       |
+This is a PyTorch implementation of iLLaMA proposed by our paper "[Adapting LLaMA Decoder to Vision Transformer](https://arxiv.org/abs/2404.06773)". 
 
 
-results with improved recipe
+![MambaOut first figure](https://github.com/hpcaitech/Open-Sora/assets/48375204/59f7af9a-679c-46ea-a428-c7bf27c0ecea)
+Figure 1: Left: iLLaMA architecture. Right: our design roadmap. Colored and gray bars
+represent the results of the tiny and base regimes, with the red line depicting the training loss of the
+tiny regime. iLLaMA strives to process visual tokens using standard LLaMa components, e.g., causal
+self-attention. The proposed PS [cls] and soft mask strategy help overcome training challenges. 
 
-| model        | ViT-T | Swin-F | ConvNeXt-F |
-|:------------|:-----:|:------:|:----------:|
-| no dropout     | 76.3  | 76.1   | 77.5       |
-| standard dropout   | 71.5  | 73.5   | -          |
-| standard s.d. | 75.6  | 75.6   | 77.4       |
-| early dropout     | [**76.7**](https://drive.google.com/file/d/1q3kopfA2KazTaR9kuEEM5lzdNKHX2OQl/view?usp=share_link) | [**76.6**](https://drive.google.com/file/d/1Os16aIWD1WpSlccsFboesc0BgXN6KJ9C/view?usp=share_link) | -          |
-| early s.d.    | [**76.7**](https://drive.google.com/file/d/1GTfGbNObvGDytdb9F5wgUHxnhlVRXs6o/view?usp=share_link) | [**76.6**](https://drive.google.com/file/d/17mNr8e-TVQoVM0I6IxVJNC4f3Y--T4R_/view?usp=share_link) | [**77.7**](https://drive.google.com/file/d/1sIePqyxk5ajVdsSCRCJoTIZsV8O_fKmO/view?usp=share_link)    |
+<br>
+
+![MambaOut second figure](https://github.com/hpcaitech/Open-Sora/assets/48375204/6dffefaa-cb27-49ba-a258-1953bdaa7330)
+Figure 2: (a) mask in causal self-attention. (b) mask in causal self-attention with our post-sequence
+class token (PS [cls]) method. (c) modified causal mask.
+
+<br>
+
+![MambaOut third figure](https://github.com/hpcaitech/Open-Sora/assets/48375204/f3b46c50-c807-4997-81d4-257b6168e5f7)
+Figure 3: (a) Soft mask gradually transitions from a bi-directional mask into a causal mask during
+training through a constant or linear schedule. (b) Ablation results of training loss and test accuracy.
 
 
-### Late Dropout
-results with basic recipe
 
-| model        | ViT-B | Mixer-B |
-|:------------:|:-----:|:-------:|
-| standard s.d.   | 81.6  | 78.0    |
-| late s.d.    | [**82.3**](https://drive.google.com/file/d/1_AB51g6AHF-C9oGWffwOw4C1Xug1LT_0/view?usp=share_link) | [**78.6**](https://drive.google.com/file/d/1CWEi8hyEIKz7F21HlsaEIgp8eaHNFHfe/view?usp=share_link)   |
+## Requirements
+PyTorch and timm 0.5.4 (`pip install timm==0.5.4`).
 
+Data preparation: ImageNet with the following folder structure, you can extract ImageNet by this [script](https://gist.github.com/BIGBALLON/8a71d225eff18d88e469e6ea9b39cef4).
 
-## Installation
-Please check [INSTALL.md](INSTALL.md) for installation instructions. 
-
-## Training
-
-### Basic Recipe
-We list commands for early dropout, early stochastic depth on `ViT-T` and late stochastic depth on `ViT-B`.
-- For training other models, change `--model` accordingly, e.g., to `vit_tiny`, `mixer_s32`, `convnext_femto`, `mixer_b16`, `vit_base`.
-- Our results were produced with 4 nodes, each with 8 gpus. Below we give example commands on both multi-node and single-machine setups.
-
-**Early dropout**
-
-multi-node
 ```
-python run_with_submitit.py --nodes 4 --ngpus 8 \
---model vit_tiny --epochs 300 \
---batch_size 128 --lr 4e-3 --update_freq 1 \
---dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
---data_path /path/to/data/ \
---output_dir /path/to/results/
-```
-
-single-machine
-```
-python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model vit_tiny --epochs 300 \
---batch_size 128 --lr 4e-3 --update_freq 4 \
---dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
---data_path /path/to/data/ \
---output_dir /path/to/results/
-```
-
-**Early stochastic depth**
-```
-python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model vit_tiny --epochs 300 \
---batch_size 128 --lr 4e-3 --update_freq 4 \
---drop_path 0.5 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
---data_path /path/to/data/ \
---output_dir /path/to/results/
-```
-
-**Late stochastic depth**
-```
-python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model vit_base --epochs 300 \
---batch_size 128 --lr 4e-3 --update_freq 4 \
---drop_path 0.4 --drop_mode late --drop_schedule constant --cutoff_epoch 50 \
---data_path /path/to/data/ \
---output_dir /path/to/results/
-```
-
-**Standard dropout / no dropout** (replace $p with 0.1 / 0.0)
-```
-python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model vit_tiny --epochs 300 \
---batch_size 128 --lr 4e-3 --update_freq 4 \
---dropout $p --drop_mode standard \
---data_path /path/to/data/ \
---output_dir /path/to/results/
+│imagenet/
+├──train/
+│  ├── n01440764
+│  │   ├── n01440764_10026.JPEG
+│  │   ├── n01440764_10027.JPEG
+│  │   ├── ......
+│  ├── ......
+├──val/
+│  ├── n01440764
+│  │   ├── ILSVRC2012_val_00000293.JPEG
+│  │   ├── ILSVRC2012_val_00002138.JPEG
+│  │   ├── ......
+│  ├── ......
 ```
 
 
-### Improved Recipe
-Our improved recipe extends training epochs from `300` to `600`, and reduces both `mixup` and `cutmix` to `0.3`.
+## Models
+### iLLaMA on ImageNet-1K
+| Model | Pre-trained dataset | Resolution | Params | MACs | Top1 Acc |
+| :---     | :---     |   :---:    |  :---: |  :---:  |  :---:  |
+| [illama_tiny](https://github.com/yuweihao/MambaOut/releases/download/model/mambaout_femto.pth) | - | 224 | 5.7M | 1.3G | 75.0 |
+| [illama_small](https://github.com/yuweihao/MambaOut/releases/download/model/mambaout_tiny.pth) | - | 224 | 21.9M | 4.6G | 79.9 |
+| [illama_base](https://github.com/yuweihao/MambaOut/releases/download/model/mambaout_small.pth) | - | 224 | 86.3M | 17.6G | 81.6 |
+| [illama_base](https://github.com/yuweihao/MambaOut/releases/download/model/mambaout_small.pth) | - | 384 | 86.3M | 55.5G | 83.0 |
+| [illama_base](https://github.com/yuweihao/MambaOut/releases/download/model/mambaout_small.pth) | ImageNet-21K | 224 | 86.3M | 17.6G | 83.6 |
+| [illama_base](https://github.com/yuweihao/MambaOut/releases/download/model/mambaout_small.pth) | ImageNet-21K | 384 | 86.3M | 55.5G | 85.0 |
+| [illama_large](https://github.com/yuweihao/MambaOut/releases/download/model/mambaout_small.pth) | ImageNet-21K | 224 | 310.2M | 62.8G | 84.8 |
+| [illama_large](https://github.com/yuweihao/MambaOut/releases/download/model/mambaout_small.pth) | ImageNet-21K | 384 | 310.2M | 194.7G | 86.0 |
 
-**Early dropout**
-```
-python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model vit_tiny --epochs 600 --mixup 0.3 --cutmix 0.3 \
---batch_size 128 --lr 4e-3 --update_freq 4 \
---dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
---data_path /path/to/data/ \
---output_dir /path/to/results/
-```
 
-**Early stochastic depth**
-```
-python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model vit_tiny --epochs 600 --mixup 0.3 --cutmix 0.3 \
---batch_size 128 --lr 4e-3 --update_freq 4 \
---drop_path 0.5 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
---data_path /path/to/data/ \
---output_dir /path/to/results/
-```
 
-### Evaluation
 
-single-GPU
-```
-python main.py --model vit_tiny --eval true \
---resume /path/to/model \
---data_path /path/to/data
+## Validation
+
+To evaluate models, run:
+
+```bash
+MODEL=mambaout_tiny
+python3 validate.py /path/to/imagenet  --model $MODEL -b 128 \
+  --pretrained
 ```
 
-multi-GPU
+## Train
+We use batch size of 4096 by default with 8 GPUs. 
+
+
+```bash
+bash scripts/train_illama_tiny_in1k.sh
 ```
-python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model vit_tiny --eval true \
---resume /path/to/model \
---data_path /path/to/data
+Training scripts of other models are shown in [scripts](/scripts/).
+
+
+## Initialization Using LLaMA2-7B (Optional)
+We use weight selection method to select weights from LLaMA2-7B. 
+
+```bash
+python llama2/weight_selection.py
 ```
 
+Then we use the selected weights to initialize our iLLaMA-T/S/B. 
 
-## Acknowledgement
-This repository is built using the [timm](https://github.com/rwightman/pytorch-image-models) library and [ConvNeXt](https://github.com/facebookresearch/ConvNeXt) codebase.
+```bash
+bash scripts/train_illama_tiny_from_llama2.sh
+```
+Training scripts of other models are shown in [scripts](/scripts/). 
 
-## License
-This project is released under the CC-BY-NC 4.0 license. Please see the [LICENSE](LICENSE) file for more information.
 
-## Citation
-If you find this repository helpful, please consider citing:
-```bibtex
-@inproceedings{liu2023dropout,
-  title={Dropout Reduces Underfitting},
-  author={Zhuang Liu, Zhiqiu Xu, Joseph Jin, Zhiqiang Shen, Trevor Darrell},
-  year={2023},
-  booktitle={International Conference on Machine Learning},
+## Bibtex
+```
+@article{wang2024adapting,
+  title={Adapting LLaMA Decoder to Vision Transformer},
+  author={Wang, Jiahao and Shao, Wenqi and Chen, Mengzhao and Wu, Chengyue and Liu, Yong and Zhang, Kaipeng and Zhang, Songyang and Chen, Kai and Luo, Ping},
+  journal={arXiv preprint arXiv:2404.06773},
+  year={2024}
 }
 ```
+
+## Acknowledgment
+
+Our implementation is based on [pytorch-image-models](https://github.com/huggingface/pytorch-image-models), [LLaMA](https://github.com/meta-llama/llama), [Dropout](https://github.com/facebookresearch/dropout), [ConvNeXt](https://github.com/facebookresearch/ConvNeXt), and [metaformer](https://github.com/sail-sg/metaformer).
