@@ -11,7 +11,6 @@ from torchvision import datasets, transforms
 from timm.data.constants import \
     IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD, IMAGENET_INCEPTION_MEAN, IMAGENET_INCEPTION_STD
 from timm.data import create_transform
-from ceph import MMImageNet
 
 def build_dataset(is_train, args):
     transform = build_transform(is_train, args)

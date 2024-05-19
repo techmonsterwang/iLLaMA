@@ -5,8 +5,8 @@ import collections
 import sys
 from functools import partial
 sys.path.insert(0, '/mnt/petrelfs/wangjiahao/DoiT')
-from models.doit22 import VisionTransformer as iLLaMa
-from models.doit22 import RMSNorm
+from models.illama import VisionTransformer as iLLaMa
+from models.illama import RMSNorm
 
 
 def uniform_element_selection(wt, s_shape):
