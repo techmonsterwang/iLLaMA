@@ -7,7 +7,7 @@
 
 
 <p align="center">
-<img src="https://github.com/hpcaitech/Open-Sora/assets/48375204/8c6c1428-89e9-41d3-862d-2c2be7d65656" width="370"> <br>
+<img src="https://github.com/hpcaitech/Open-Sora/assets/48375204/8c6c1428-89e9-41d3-862d-2c2be7d65656" width="376"> <br>
 <small>Image credit: DALL·E</small>
 </p>
 
