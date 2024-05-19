@@ -6,11 +6,11 @@ OUTPUT='output/debug'
 
 srun -p gvembodied \
     --job-name=debug \
-    --gres=gpu:4 \
+    --gres=gpu:2 \
     --cpus-per-task=32 \
     --preempt \
     --quotatype=spot \
-    python -m torch.distributed.launch --nproc_per_node=4 main_soft.py \
+    python -m torch.distributed.launch --nproc_per_node=2 main_soft.py \
     --model $MODEL --epochs 300 --warmup_epochs 5 --mixup 0.1 --cutmix 0.1 \
     --batch_size 128 --lr 4e-3 --update_freq 4 \
     --dropout 0 --drop_mode standard \
