@@ -67,8 +67,8 @@ Data preparation: ImageNet with the following folder structure, you can extract 
 | [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in1k-384-83.0.pth) | - | 384 | 86.3M | 55.5G | 83.0 |
 | [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in21kin1k-224-83.6.pth) | ImageNet-21K | 224 | 86.3M | 17.6G | 83.6 |
 | [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in21kin1k-384-85.0.pth) | ImageNet-21K | 384 | 86.3M | 55.5G | 85.0 |
-| [illama_large]() | ImageNet-21K | 224 | 310.2M | 62.8G | 84.8 |
-| [illama_large]() | ImageNet-21K | 384 | 310.2M | 194.7G | 86.0 |
+| [illama_large] | ImageNet-21K | 224 | 310.2M | 62.8G | 84.8 |
+| [illama_large] | ImageNet-21K | 384 | 310.2M | 194.7G | 86.0 |
 
 
 
