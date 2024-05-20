@@ -11,7 +11,7 @@ srun -p gvembodied \
     --gres=gpu:2 \
     --cpus-per-task=32 \
     --preempt \
-    --quotatype=reserved \
+    --quotatype=spot \
     python -m torch.distributed.launch --nproc_per_node=2 main.py \
     --model $MODEL --eval true \
     --data_path $root_imagenet \
@@ -27,7 +27,7 @@ srun -p gvembodied \
     --gres=gpu:2 \
     --cpus-per-task=32 \
     --preempt \
-    --quotatype=reserved \
+    --quotatype=spot \
     python -m torch.distributed.launch --nproc_per_node=2 main.py \
     --model $MODEL --eval true \
     --data_path $root_imagenet \
@@ -43,7 +43,7 @@ srun -p gvembodied \
     --gres=gpu:2 \
     --cpus-per-task=32 \
     --preempt \
-    --quotatype=reserved \
+    --quotatype=spot \
     python -m torch.distributed.launch --nproc_per_node=2 main.py \
     --model $MODEL --eval true \
     --data_path $root_imagenet \
@@ -59,7 +59,7 @@ srun -p gvembodied \
     --gres=gpu:2 \
     --cpus-per-task=32 \
     --preempt \
-    --quotatype=reserved \
+    --quotatype=spot \
     python -m torch.distributed.launch --nproc_per_node=2 main.py \
     --model $MODEL --eval true \
     --data_path $root_imagenet \
@@ -75,7 +75,7 @@ srun -p gvembodied \
     --gres=gpu:2 \
     --cpus-per-task=32 \
     --preempt \
-    --quotatype=reserved \
+    --quotatype=spot \
     python -m torch.distributed.launch --nproc_per_node=2 main.py \
     --model $MODEL --eval true \
     --data_path $root_imagenet \
