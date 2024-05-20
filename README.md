@@ -61,14 +61,14 @@ Data preparation: ImageNet with the following folder structure, you can extract 
 ### iLLaMA on ImageNet-1K
 | Model | Pre-trained dataset | Resolution | Params | MACs | Top1 Acc |
 | :---     | :---     |   :---:    |  :---: |  :---:  |  :---:  |
-| [illama_tiny](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-tiny-in1k-75.0.pth) | - | 224 | 5.7M | 1.3G | 75.0 |
-| [illama_small](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-small-in1k-79.9.pth) | - | 224 | 21.9M | 4.6G | 79.9 |
-| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in1k-81.6.pth) | - | 224 | 86.3M | 17.6G | 81.6 |
-| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in1k-384-83.0.pth) | - | 384 | 86.3M | 55.5G | 83.0 |
-| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in21kin1k-224-83.6.pth) | ImageNet-21K | 224 | 86.3M | 17.6G | 83.6 |
-| [illama_base](https://github.com/techmonsterwang/iLLaMA/releases/download/1.0/illama-base-in21kin1k-384-85.0.pth) | ImageNet-21K | 384 | 86.3M | 55.5G | 85.0 |
-| [illama_large] | ImageNet-21K | 224 | 310.2M | 62.8G | 84.8 |
-| [illama_large] | ImageNet-21K | 384 | 310.2M | 194.7G | 86.0 |
+| [illama_tiny](https://huggingface.co/techmonsterwang/iLLaMA/resolve/main/illama-tiny-in1k-75.0.pth?download=true) | - | 224 | 5.7M | 1.3G | 75.0 |
+| [illama_small](https://huggingface.co/techmonsterwang/iLLaMA/resolve/main/illama-small-in1k-79.9.pth?download=true) | - | 224 | 21.9M | 4.6G | 79.9 |
+| [illama_base](https://huggingface.co/techmonsterwang/iLLaMA/resolve/main/illama-base-in1k-81.6.pth?download=true) | - | 224 | 86.3M | 17.6G | 81.6 |
+| [illama_base](https://huggingface.co/techmonsterwang/iLLaMA/resolve/main/illama-base-in1k-384-83.0.pth?download=true) | - | 384 | 86.3M | 55.5G | 83.0 |
+| [illama_base](https://huggingface.co/techmonsterwang/iLLaMA/resolve/main/illama-base-in21kin1k-224-83.6.pth?download=true) | ImageNet-21K | 224 | 86.3M | 17.6G | 83.6 |
+| [illama_base](https://huggingface.co/techmonsterwang/iLLaMA/resolve/main/illama-base-in21kin1k-384-85.0.pth?download=true) | ImageNet-21K | 384 | 86.3M | 55.5G | 85.0 |
+| [illama_large](https://huggingface.co/techmonsterwang/iLLaMA/resolve/main/illama-large-in21kin1k-224-84.8.pth?download=true) | ImageNet-21K | 224 | 310.2M | 62.8G | 84.8 |
+| [illama_large](https://huggingface.co/techmonsterwang/iLLaMA/resolve/main/illama-large-in21kin1k-384-86.0.pth?download=true) | ImageNet-21K | 384 | 310.2M | 194.7G | 86.0 |
 
 
 
@@ -136,4 +136,4 @@ Training scripts of other models are shown in [scripts](/scripts/).
 
 ## Acknowledgment
 
-Our implementation is based on [pytorch-image-models](https://github.com/huggingface/pytorch-image-models), [llama](https://github.com/meta-llama/llama), [dropout](https://github.com/facebookresearch/dropout), [ConvNeXt](https://github.com/facebookresearch/ConvNeXt), and [weight-selection](https://github.com/OscarXZQ/weight-selection).
+Our implementation is based on [pytorch-image-models](https://github.com/huggingface/pytorch-image-models), [llama](https://github.com/meta-llama/llama), [dropout](https://github.com/facebookresearch/dropout), [ConvNeXt](https://github.com/facebookresearch/ConvNeXt), [weight-selection](https://github.com/OscarXZQ/weight-selection), and [MambaOut](https://github.com/yuweihao/MambaOut).
